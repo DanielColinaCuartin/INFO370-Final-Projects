@@ -32,7 +32,7 @@ The audience would learn from the resource is: “what type of application would
 
 ## Technical Description
 ### What will be the format of your final web resource (Shiny app, HTML page or slideshow compiled with KnitR, etc.)?
-A Jupyter Notebook created report (Maybe?)
+A Jupyter Notebook created html page report, hosted on github pages.
 ### Do you anticipate any specific data collection / data management challenges?
 There may be duplicate entries for the same application, we’re going to need to clean this up if that is the case. The dataset is pretty huge, this may cause technical issues, we might need to run our analysis on a third of the dataset as opposed to the whole dataset at any given time.
 
