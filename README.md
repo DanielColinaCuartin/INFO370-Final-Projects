@@ -42,5 +42,9 @@ To complete this project, we will need to have a thorough understanding of featu
 We will also need to understand different machine learning technologies that are able to use historical data to predict the success of an application. We currently understand grid search from lecture, but is this the best method to use for our data? This is a question we will need to answer by learning what machine learning models are available to us. 
 ### How will you conduct your analysis? Please include a detailed description of your intended modeling approach. 
 
+We plan to look at which features in the dataset are most correlated with downloads and also use feature selection to find the most optimal variables to use. We'll then be using predictive modeling using the chosen variables so we we'll be able to predict which apps will be most popular. Depending on which machine learning method we use, we may limit our chosen features to a certain amount our compare how well the model performs based on the amount of features we feed it.
+
 ### What major challenges do you anticipate? 
+
+As of now, the major challenges we anticipate are just how we will handle the data management. Because of the size, we should be able to drop any rows with null values without any adverse affects. Other than that, choosing the best machine learning method and way to visualize our results may be the most challenging aspect of the project.
 
