@@ -13258,7 +13258,8 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>For our machine learning models, we used k-Nearest Neighbors, RandomForest, and XGboost. We chose these because k-Nearest Neighbors and RandomForest are fairly different models so we wanted to see the difference in how they would perform, and XGboost is known for it's efficiency and performance. We used the five variables found through feature selection in each of the models with our independent variable being installations.</p>
+<p>For our machine learning models, we used k-Nearest Neighbors, RandomForest, and XGboost. We chose these because k-Nearest Neighbors and RandomForest are fairly different models so we wanted to see the difference in how they would perform, and XGboost is known for it's efficiency and performance. K_Nearest Neighbors works by searching for the most similar points in the training data and using that to make its predictions. Random forest uses a collection of decision trees, which splits the data, seperating it until it reaches a "desicion" - our predictions.</p>
+<p>We used the five variables found through feature selection in each of the models with our independent variable being installations.</p>
 <p>The following three visualizations are line graphs of the predictions made by the model vs. the actual values, and are ordered from the model that performed the poorest to the model that performed the best.</p>
 
 </div>
@@ -13307,14 +13308,6 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="img/MSE.png" style="width: 8in;"/></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p><img src="img/acc_3_models.png" style="width: 8in;"/></p>
 
 </div>
@@ -13331,7 +13324,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="img/scores.png" style="width: 6in;"/></p>
+<p><img src="img/scores_3.png" style="width: 6in;"/></p>
 
 </div>
 </div>
