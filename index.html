@@ -13116,6 +13116,13 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="What's-in-an-app-title?">What's in an app title?<a class="anchor-link" href="#What's-in-an-app-title?">&#182;</a></h3><h3 id="Can-we-predict-the-number-of-installs-a-given-app-has-with-just-a-name?">Can we predict the number of installs a given app has with just a name?<a class="anchor-link" href="#Can-we-predict-the-number-of-installs-a-given-app-has-with-just-a-name?">&#182;</a></h3><h3 id="What-other-factors-are-relevant-to-an-app's-success,-and-how-accurately-can-we-predict-an-app's-installs-using-basic-features-you-can-web-scrape-from-the-Google-Play-Store?">What other factors are relevant to an app's success, and how accurately can we predict an app's installs using basic features you can web scrape from the Google Play Store?<a class="anchor-link" href="#What-other-factors-are-relevant-to-an-app's-success,-and-how-accurately-can-we-predict-an-app's-installs-using-basic-features-you-can-web-scrape-from-the-Google-Play-Store?">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Google-Play-Store-App-Analysis">Google Play Store App Analysis<a class="anchor-link" href="#Google-Play-Store-App-Analysis">&#182;</a></h1>
 </div>
 </div>
@@ -13142,7 +13149,8 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Our data is coming from Kaggle.com, it includes web-scraped features from the Google Play Store. Lavanya Gupta maintains the dataset, and last updated it a month ago, February 2019. Although there is a great deal of Apple datasets available, Google has a dynamic play store system that makes web scraping more challenging. But, with the data now available to us we can use it to gain insight into what Google Play Apps are like on a high level.</p>
-<p>This data contains information for apps last gathered in August of 2018.</p>
+<p>This data contains information for apps last gathered in August of 2018. Here is an example of the data (after processing):</p>
+<p><img src="img/rating_dist.png" style="width: 7in;"/></p>
 
 </div>
 </div>
@@ -13150,8 +13158,16 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Distribution-of-features">Distribution of features<a class="anchor-link" href="#Distribution-of-features">&#182;</a></h3><p><img src="img/rating_dist.png" style="width: 7in;"/></p>
+<h3 id="Distribution-of-features">Distribution of features<a class="anchor-link" href="#Distribution-of-features">&#182;</a></h3><p><img src="img/data_head.png" style="width: 7in;"/></p>
 <p>We have a total of 9,360 ratings, and a mean rating of 4.191838 with a standard deviation of 0.515263. The individual ratings are integers in the form of 1 to 5 stars.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="img/corrs.png" style="width: 6in;"/></p>
 
 </div>
 </div>
@@ -13186,14 +13202,8 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Most-Popular-Words">Most Popular Words<a class="anchor-link" href="#Most-Popular-Words">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Table-and-Visual">Table and Visual<a class="anchor-link" href="#Table-and-Visual">&#182;</a></h3><p><img src="img/most_common_words.png" style="width: 10in;"/></p>
+<h2 id="Most-Popular-Words">Most Popular Words<a class="anchor-link" href="#Most-Popular-Words">&#182;</a></h2><p>We used the NLTK library in Python in order to analyze the titles of our apps before we started our machine learning. We first used the library to tokenize each title. This was in order to break down each title into individual words we can process quickly. Once this was done we could use the stop_words module in order to filter out common words which most likely don't have much meaning in a title, such as "the" or "a". We also filtered out words that were actually just punctuation, such as a period or parenthases.</p>
+<p>Once this was done, we used the frequency distribution in order to observe the most common words used in titles, "Free" was the most common words used. Most likely app developers/marketers trying to signal to users that using their app has no barriers.</p>
 
 </div>
 </div>
@@ -13201,7 +13211,23 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Statistical-Modeling">Statistical Modeling<a class="anchor-link" href="#Statistical-Modeling">&#182;</a></h2><p>The original data had 9,367 apps described, but 7 of those had NA values (incomplete observations) so we dropped them from the set since our dataset was large enough to minimize the problems of dropping a few rows.</p>
+<p><img src="img/most_common_words.png" style="width: 10in;"/></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="img/top_25_words_installs.png" style="width: 7in;"/></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Modeling">Modeling<a class="anchor-link" href="#Modeling">&#182;</a></h2><p>The original data had 9,367 apps described, but 7 of those had NA values (incomplete observations) so we dropped them from the set since our dataset was large enough to minimize the problems of dropping a few rows.</p>
 
 </div>
 </div>
@@ -13216,14 +13242,82 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Main-Takeaways">Main Takeaways<a class="anchor-link" href="#Main-Takeaways">&#182;</a></h2>
+<p><img src="img/correlations_with_installs.png" style="width: 10in;"/></p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="Accuracy-and-types-of-models">Accuracy and types of models<a class="anchor-link" href="#Accuracy-and-types-of-models">&#182;</a></h5>
+<p><img src="img/mae_3_models.png" style="width: 8in;"/></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="img/acc_3_models.png" style="width: 8in;"/></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="img/nkk_acc.png" style="width: 10in;"/></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="img/rfc_acc.png" style="width: 10in;"/></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="img/xgb_acc.png" style="width: 10in;"/></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Title-Analysis---Machine-Learning---Linear-Regression">Title Analysis - Machine Learning - Linear Regression<a class="anchor-link" href="#Title-Analysis---Machine-Learning---Linear-Regression">&#182;</a></h2><p>The first step we took in analysing the relationship between the words in the title of an app and the app's installs was to "Vectorize" the words in the title. There are so many words in total, it's challenging for a computer to store all the information (which words are present in the title, and more importantly which are not). So rather than store the actual words, a column for each word is produced, and if a word is present in the title than the column for that work is marked with a "1", otherwise with a 0. There are many, many more zeros than ones most of the time, so in order to store all of the information Python uses a "sparse" array, which basically assumes that every column is a zero until the next instance of a one, this makes it much easier for our computers to work with.</p>
+<p>The next step would be to determine the "term frequency" of a given word, since two instances of a given term is much more significant in a 5 word sentence than in a 1000 word essay. This is done automatically for us in our pipeline with sklearn's TfidfTransformer.</p>
+<p>Once the "app title" data has gone through this process, we perform a machine learning algorithm in order to find a linear regression for any given title. We run a grid search in order to determine if we need to fit to an intercept or normalize the data, and then we train our model on 90% of our data. We can then test with the remaining 10% of apps, and the results of that are below.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="img/reg_perf.png" style="width: 8in;"/></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Title-Analysis---Machine-Learning---Multinomial-NB">Title Analysis - Machine Learning - Multinomial NB<a class="anchor-link" href="#Title-Analysis---Machine-Learning---Multinomial-NB">&#182;</a></h2><p>We go through the same process as before when in comes to vectorizing and running tf-idf on our data, but now we run a multinomial nb classification model.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="img/mnb_perf.png" style="width: 8in;"/></p>
+
 </div>
 </div>
 </div>
@@ -13239,6 +13333,8 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Dataset:</p>
 <p><a href="https://www.kaggle.com/lava18/google-play-store-apps">https://www.kaggle.com/lava18/google-play-store-apps</a></p>
+<p>Github Repo:</p>
+<p><a href="https://github.com/DanielColinaCuartin/INFO370-Final-Projects">https://github.com/DanielColinaCuartin/INFO370-Final-Projects</a></p>
 
 </div>
 </div>
